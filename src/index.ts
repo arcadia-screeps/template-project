@@ -7,8 +7,21 @@ const rl = readline.createInterface(
         output: process.stdout,
     }) ;
 
-export default function program(): void {
-    rl.question("What's your name", greet) ;
+async function askName():Promise<string>{
+    const ac = new AbortController() ;
+    const signal = ac.signal ;
+    return new Promise<string>((resolve, reject) =>{
+        // prompt to standard input and read answer from standard output
+        rl.question("What's your name? ",  {signal,},(name)=>{
+            resolve(name) ;
+        }) ;
+    }) ;
+}
+
+export default async function program(): Promise<void> {
+    const name = await askName() ;
+    greet(name) ;
+    rl.close() ;
 }
 
 

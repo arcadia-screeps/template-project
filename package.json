@@ -37,15 +37,18 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -cw"
+    "build": "rollup -cw",
+    "docs": "api-extractor run --diagnostics && api-documenter markdown --input-folder ./docs"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.1",
+    "@microsoft/api-documenter": "^7.22.6",
+    "@microsoft/api-extractor": "^7.35.0",
+    "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/fs-extra": "^11.0.1",
     "@types/lodash-es": "^4.17.6",
-    "@types/node": "^18.14.6",
+    "@types/node": "^20.2.3",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "eslint": "^8.35.0",
@@ -55,9 +58,12 @@
     "rollup": "^3.18.0",
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-dts": "^5.2.0",
-    "rollup-plugin-node-externals": "^5.1.2",
+    "rollup-plugin-node-externals": "^6.0.1",
     "rollup-plugin-typescript2": "^0.34.1",
-    "type-fest": "^3.6.1"
+    "rollup-plugin-visualizer": "^5.9.0",
+    "tslib": "^2.5.0",
+    "type-fest": "^3.6.1",
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
     "fs-extra": "^11.1.0",
